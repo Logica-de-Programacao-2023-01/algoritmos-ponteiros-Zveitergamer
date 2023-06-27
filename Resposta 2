@@ -1,0 +1,18 @@
+package main
+
+import "fmt"
+
+func VerificaParImpar(ptr *int) {
+	if *ptr%2 == 0 {
+		*ptr = 0 // Atualiza para 0 se for par
+	} else {
+		*ptr = 1 // Atualiza para 1 se for ímpar
+	}
+}
+
+func main() {
+	num := 7
+	fmt.Println("Valor inicial:", num)
+	VerificaParImpar(&num)
+	fmt.Println("Valor atualizado:", num)
+}
