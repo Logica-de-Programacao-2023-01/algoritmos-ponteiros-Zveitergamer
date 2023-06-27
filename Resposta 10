@@ -1,0 +1,49 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func PreencherPrimos(slice *[]int, tamanho int) {
+	if tamanho <= 0 {
+		return
+	}
+
+	primos := *slice
+	primos = append(primos, 2)
+	numero := 3
+
+	for len(primos) < tamanho {
+		limite := int(math.Sqrt(float64(numero)))
+
+		primo := true
+		for _, p := range primos {
+			if p > limite {
+				break
+			}
+
+			if numero%p == 0 {
+				primo = false
+				break
+			}
+		}
+
+		if primo {
+			primos = append(primos, numero)
+		}
+
+		numero += 2
+	}
+
+	*slice = primos
+}
+
+func main() {
+	var primos []int
+	tamanho := 10
+
+	PreencherPrimos(&primos, tamanho)
+
+	fmt.Println("Números primos:", primos)
+}
