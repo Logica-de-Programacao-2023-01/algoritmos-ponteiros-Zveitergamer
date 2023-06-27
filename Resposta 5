@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func MediaComPi(ptr *float64) {
+	valorAtual := *ptr
+	media := (valorAtual + math.Pi) / 2
+	*ptr = media
+}
+
+func main() {
+	num := 3.14
+	fmt.Println("Valor original:", num)
+	MediaComPi(&num)
+	fmt.Println("Novo valor:", num)
+}
