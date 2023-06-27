@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func ModificarValor(ponteiro *int) {
+	*ponteiro = 42
+}
+
+func main() {
+	var valor int = 10
+	fmt.Println("Valor antes da modificação:", valor)
+
+	ModificarValor(&valor)
+
+	fmt.Println("Valor após a modificação:", valor)
+}
