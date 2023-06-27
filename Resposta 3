@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func ReverteString(ptr *string) {
+	runes := []rune(*ptr)               // Converte a string em um slice de runes
+	n := len(runes)
+
+	for i := 0; i < n/2; i++ {
+		// Troca os caracteres de posição
+		runes[i], runes[n-1-i] = runes[n-1-i], runes[i]
+	}
+
+	*ptr = string(runes)                // Atualiza o valor da string reversa
+}
+
+func main() {
+	str := "Hello, World!"
+	fmt.Println("String original:", str)
+	ReverteString(&str)
+	fmt.Println("String reversa:", str)
+}
