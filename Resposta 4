@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+)
+
+func SomaUltimosDigitos(ptr *int) {
+	num := *ptr
+	digito1 := num % 10
+	digito2 := (num / 10) % 10
+	soma := digito1 + digito2
+	*ptr = soma
+}
+
+func main() {
+	num := 1234
+	fmt.Println("Valor original:", num)
+	SomaUltimosDigitos(&num)
+	fmt.Println("Novo valor:", num)
+}
